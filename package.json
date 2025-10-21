@@ -4,7 +4,9 @@
   "type": "module",
   "main": "./src/index.ts",
   "scripts": {
-    "dev": "nodemon --exec node --loader ts-node/esm ./src/index.ts",
+    "dev:server": "nodemon --exec node --loader ts-node/esm ./src/index.ts",
+    "stripe": "stripe listen --forward-to localhost:7000/api/order/checkout/webhook",
+    "dev": "concurrently \"npm run dev:server\" \"npm run stripe\"",
     "build": "npm install && npx tsc",
     "start": "node dist/index.js"
   },
@@ -15,6 +17,7 @@
   "dependencies": {
     "@types/multer": "^2.0.0",
     "cloudinary": "^2.7.0",
+    "concurrently": "^9.2.1",
     "cors": "^2.8.5",
     "dotenv": "^17.2.3",
     "express": "^5.1.0",
@@ -23,7 +26,8 @@
     "jsonwebtoken": "^9.0.2",
     "mongodb": "^6.20.0",
     "mongoose": "^8.19.1",
-    "multer": "^2.0.2"
+    "multer": "^2.0.2",
+    "stripe": "^19.1.0"
   },
   "devDependencies": {
     "@types/cors": "^2.8.19",
