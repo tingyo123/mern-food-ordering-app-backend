@@ -1,11 +1,8 @@
 import express from "express";
 import multer from "multer";
-import MyRestaurantController from "../controllers/MyRestaurantController.js";
 import { jwtCheck, jwtParse } from "../middleware/auth.js";
-import {
-  validateMyRestaurantRequest,
-  validateMyUserRequest,
-} from "../middleware/validation.js";
+import MyRestaurantController from "../controllers/MyRestaurantController.js";
+import { validateMyRestaurantRequest } from "../middleware/validation.js";
 
 const router = express.Router();
 
@@ -13,7 +10,7 @@ const storage = multer.memoryStorage();
 const upload = multer({
   storage: storage,
   limits: {
-    fileSize: 5 * 1024 * 1024,
+    fileSize: 5 * 1024 * 1024, //5mb
   },
 });
 

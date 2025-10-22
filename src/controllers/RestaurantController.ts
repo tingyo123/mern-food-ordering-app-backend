@@ -9,6 +9,7 @@ const getRestaurant = async (req: Request, res: Response) => {
     if (!restaurant) {
       return res.status(404).json({ message: "restaurant not found" });
     }
+
     res.json(restaurant);
   } catch (error) {
     console.log(error);
@@ -22,7 +23,6 @@ const searchRestaurant = async (req: Request, res: Response) => {
     if (!city) {
       return res.status(400).json({ message: "City parameter is required" });
     }
-
     const searchQuery = (req.query.searchQuery as string) || "";
     const selectedCuisines = (req.query.selectedCuisines as string) || "";
     const sortOption = (req.query.sortOption as string) || "lastUpdated";

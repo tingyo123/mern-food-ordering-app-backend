@@ -10,7 +10,7 @@ router.get(
     .isString()
     .trim()
     .notEmpty()
-    .withMessage("RestaurantId parameter must be a valid string"),
+    .withMessage("RestaurantId paramenter must be a valid string"),
   RestaurantController.getRestaurant
 );
 

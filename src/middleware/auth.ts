@@ -37,6 +37,7 @@ export const jwtParse = async (
     return res.sendStatus(401);
   }
 
+  // Bearer lshdflshdjkhvjkshdjkvh34h5k3h54jkh
   const token = authorization.split(" ")[1];
 
   if (token) {
